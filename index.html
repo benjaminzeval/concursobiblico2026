@@ -1,0 +1,1005 @@
+--- START OF FILE Paste August 28, 2026 - 2:25AM ---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONCURSO BÍBLICO 2026 | Los Olivos</title>
+
+    <!-- Fuentes: Inter para ese look moderno y minimalista -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        :root {
+            --neon-green: #C1FF00;
+            --off-white: #F5F5F0;
+            --dark-black: #121212;
+            --pure-black: #000000;
+            --card-border: 2px solid #000;
+            --box-shadow: 8px 8px 0px 0px #000;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--off-white);
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-black);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* --- NAVEGACIÓN MEJORADA --- */
+        nav {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(245, 245, 240, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: clamp(18px, 4vw, 24px);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo-box {
+            background: var(--dark-black);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+
+        .nav-right-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-menu {
+            background: var(--dark-black);
+            padding: 10px 24px;
+            border-radius: 50px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover { color: var(--neon-green); }
+
+        .btn-waitlist {
+            background: var(--dark-black);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: clamp(12px, 3vw, 14px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-waitlist i {
+            background: var(--neon-green);
+            color: black;
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 9px;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 5% 60px;
+            position: relative;
+        }
+
+        .hero-tag {
+            background: var(--dark-black);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: clamp(12px, 3vw, 14px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-tag i { color: var(--neon-green); }
+
+        .hero h4 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: clamp(12px, 3vw, 14px);
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 9vw, 7rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: clamp(16px, 4vw, 20px);
+            color: #444;
+            margin-bottom: 40px;
+            font-weight: 500;
+            padding: 0 10px;
+        }
+
+        .btn-main-neon {
+            background: var(--neon-green);
+            color: black;
+            padding: 18px 35px;
+            border: var(--card-border);
+            box-shadow: 4px 4px 0px #000;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: clamp(14px, 4vw, 18px);
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .btn-main-neon:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #000;
+        }
+
+        /* --- COUNTDOWN --- */
+        .countdown-section {
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .countdown-box {
+            background: white;
+            border: var(--card-border);
+            box-shadow: var(--box-shadow);
+            padding: clamp(25px, 5vw, 40px) 20px;
+            border-radius: 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .countdown-box h3 {
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: black;
+            background: var(--neon-green);
+            display: inline-block;
+            padding: 6px 15px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: clamp(10px, 3vw, 20px);
+        }
+
+        .timer-unit {
+            display: flex;
+            flex-direction: column;
+            min-width: 60px;
+        }
+
+        .timer-unit span:first-child {
+            font-size: clamp(28px, 6vw, 48px);
+            font-weight: 900;
+            line-height: 1;
+            color: var(--dark-black);
+        }
+
+        .timer-unit span:last-child {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 800;
+            opacity: 0.7;
+            margin-top: 8px;
+            color: black;
+        }
+
+        /* --- SECCIONES GENERALES --- */
+        section {
+            padding: clamp(60px, 10vw, 100px) 7%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header-title {
+            text-align: center;
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: clamp(40px, 8vw, 60px);
+            line-height: 1.1;
+        }
+
+        .content-card {
+            background: white;
+            border: var(--card-border);
+            box-shadow: var(--box-shadow);
+            border-radius: 24px;
+            padding: clamp(30px, 6vw, 60px);
+            position: relative;
+        }
+
+        .fundamento-text {
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: 500;
+            max-width: 950px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .fundamento-text span {
+            background: var(--neon-green);
+            padding: 0 4px;
+            font-weight: 700;
+        }
+
+        /* --- FASES --- */
+        #etapas {
+            max-width: none;
+            width: 100%;
+            margin: 0;
+            padding: clamp(60px, 10vw, 100px) 7%;
+        }
+
+        .fases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .fase-box {
+            padding: 35px;
+            border-radius: 24px;
+            border: var(--card-border);
+            position: relative;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .fase-box.highlight {
+            background: var(--neon-green);
+            box-shadow: 6px 6px 0px black;
+        }
+
+        .fase-num {
+            width: 40px;
+            height: 40px;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .fase-box h3 {
+            font-size: clamp(22px, 4vw, 28px);
+            font-weight: 900;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        /* --- BANCO DE VERSÍCULOS --- */
+        .eje-title {
+            font-size: clamp(18px, 4vw, 1.5rem);
+            font-weight: 900;
+            background: black;
+            color: var(--neon-green);
+            display: inline-block;
+            padding: 8px 20px;
+            margin: 50px 0 25px 0;
+            transform: skew(-5deg);
+        }
+
+        .verse-list {
+            margin-top: 20px;
+        }
+
+        .verse-card {
+            background: white;
+            border: var(--card-border);
+            border-radius: 20px;
+            padding: clamp(20px, 4vw, 30px);
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            align-items: start;
+            transition: var(--transition);
+        }
+
+        .verse-card:hover {
+            box-shadow: 6px 6px 0px black;
+            transform: translateY(-3px);
+        }
+
+        .verse-card strong {
+            background: var(--neon-green);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 13px;
+            text-transform: uppercase;
+            border: 2px solid black;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .verse-card p {
+            font-size: clamp(15px, 3.5vw, 18px);
+            font-weight: 500;
+            color: #121212;
+            line-height: 1.5;
+        }
+
+        #more-verses {
+            display: none;
+        }
+
+        .btn-view-more {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            background: var(--dark-black);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 800;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .btn-view-more:hover {
+            background: var(--neon-green);
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* --- AUDIO PLAYERS --- */
+        .audio-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .audio-player-card {
+            background: #fff;
+            border: var(--card-border);
+            box-shadow: 6px 6px 0px black;
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .audio-player-card h4 {
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        audio {
+            width: 100%;
+            height: 35px;
+            margin-top: 10px;
+        }
+
+        /* --- MATRIZ --- */
+        .matrix-container {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .matrix-row {
+            background: var(--neon-green);
+            padding: 20px 30px;
+            border-radius: 15px;
+            border: var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            font-size: clamp(16px, 3.5vw, 20px);
+            gap: 15px;
+        }
+
+        /* --- GRAN FINAL RONDAS --- */
+        .final-rounds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .round-card {
+            background: #fff;
+            border: var(--card-border);
+            border-radius: 24px;
+            box-shadow: 6px 6px 0px 0px #000;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .round-header {
+            background: black;
+            color: white;
+            padding: 12px;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .round-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .round-title {
+            font-weight: 900;
+            font-size: clamp(18px, 4vw, 20px);
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--neon-green);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .round-body {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .round-footer {
+            margin-top: 20px;
+            font-size: 12px;
+            font-style: italic;
+            font-weight: 700;
+            color: #777;
+        }
+
+        .banner-final {
+            background: var(--neon-green);
+            border-radius: 30px;
+            border: var(--card-border);
+            box-shadow: 12px 12px 0px black;
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 40px);
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .banner-final h2 {
+            font-size: clamp(30px, 7vw, 70px);
+            font-weight: 900;
+            margin: 20px 0;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .final-medal-info {
+            background: black;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            margin-top: 40px;
+            display: inline-block;
+            font-weight: 800;
+            font-size: clamp(12px, 3vw, 15px);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark-black);
+            padding: 60px 7% 30px;
+            color: white;
+        }
+
+        .footer-logo { font-size: 24px; font-weight: 900; }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 992px) {
+            .verse-card {
+                grid-template-columns: 160px 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            nav { padding: 10px 5%; }
+            
+            .verse-card {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .verse-card strong {
+                align-self: flex-start;
+            }
+
+            .matrix-row {
+                padding: 15px 20px;
+                flex-direction: column;
+                text-align: center;
+                border-radius: 20px;
+            }
+
+            .countdown-section {
+                padding: 20px 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timer { gap: 10px; }
+            .timer-unit { min-width: 50px; }
+            .hero { padding-top: 120px; }
+            .fase-box { padding: 25px; }
+            .content-card { padding: 25px 20px; }
+            .round-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Concurso<span class="logo-box">Bíblico</span></div>
+    
+    <div class="nav-right-group">
+        <div class="nav-menu">
+            <a href="#fundamento">Propósito</a>
+            <a href="#etapas">Fases</a>
+            <a href="#temario">Estudio</a>
+            <a href="#final">Sept 30</a>
+        </div>
+        <a href="#final" class="btn-waitlist">
+            GRAN FINAL <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero">
+    <div class="hero-tag" data-aos="fade-down">
+        <i class="fa-solid fa-check-circle"></i> NIVEL SECUNDARIA 2026
+    </div>
+    <h4 data-aos="fade-up" data-aos-delay="200">COLEGIO LOS OLIVOS PRESENTA</h4>
+    <h1 data-aos="fade-up" data-aos-delay="300">Del Mandato<br>a la Gracia</h1>
+    <p data-aos="fade-up" data-aos-delay="400">
+        "Caminando en la Verdad y el Perdón" 
+        <br>Un viaje desde los preceptos de Éxodo hasta la restauración de los Salmos.
+    </p>
+    
+    <a href="#temario" class="btn-main-neon" data-aos="zoom-in" data-aos-delay="600">
+        COMENZAR PREPARACIÓN <i class="fa-solid fa-bolt"></i>
+    </a>
+</header>
+
+<!-- COUNTDOWN SECTION -->
+<div class="countdown-section">
+    <div class="countdown-box" data-aos="fade-right">
+        <h3>Preselección: 21 de Septiembre</h3>
+        <div class="timer" id="timer-pre">
+            <div class="timer-unit"><span id="days-pre">00</span><span>Días</span></div>
+            <div class="timer-unit"><span id="hours-pre">00</span><span>Hrs</span></div>
+            <div class="timer-unit"><span id="mins-pre">00</span><span>Min</span></div>
+            <div class="timer-unit"><span id="secs-pre">00</span><span>Seg</span></div>
+        </div>
+    </div>
+    <div class="countdown-box" data-aos="fade-left">
+        <h3>Gran Final: 30 de Septiembre</h3>
+        <div class="timer" id="timer-final">
+            <div class="timer-unit"><span id="days-final">00</span><span>Días</span></div>
+            <div class="timer-unit"><span id="hours-final">00</span><span>Hrs</span></div>
+            <div class="timer-unit"><span id="mins-final">00</span><span>Min</span></div>
+            <div class="timer-unit"><span id="secs-final">00</span><span>Seg</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- SECCIÓN FUNDAMENTO -->
+<section id="fundamento">
+    <h2 class="section-header-title" data-aos="fade-right">El Propósito</h2>
+    <div class="content-card" data-aos="fade-up">
+        <div class="fundamento-text">
+            Este concurso nace con el propósito de conectar a los estudiantes con la Palabra de Dios de una manera viva, práctica y retadora. A través del estudio de <span>Éxodo 20</span> y el <span>Salmo 34</span>, los jóvenes comprenderán el balance fundamental de la fe cristiana: mientras la <span>Ley</span> nos muestra la santidad de Dios, Su <span>Gracia</span> nos abraza, nos perdona y nos brinda refugio.
+            <br><br>
+            Buscamos afianzar la <span>disciplina de la memorización</span> y promover una integración de principios espirituales en la vida cotidiana de cada alumno.
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN FASES (EDITADA PARA PANTALLA COMPLETA) -->
+<section id="etapas" style="background: white;">
+    <h2 class="section-header-title">Etapas del Concurso</h2>
+    <div class="fases-grid">
+        <div class="fase-box" data-aos="fade-up">
+            <div class="fase-num">1</div>
+            <h3>Preselección</h3>
+            <p>Prueba escrita aplicada en cada salón para evaluar el conocimiento individual de los 20 versículos clave. Los 3 mejores de cada aula clasifican.</p>
+        </div>
+        <div class="fase-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="fase-num">2</div>
+            <h3>Eliminatoria en vivo</h3>
+            <p>Competencia ágil en escenario utilizando pulsadores y/o banderas. Se define el Único Representante Oficial por cada grado (1° a 5°).</p>
+        </div>
+        <div class="fase-box highlight" data-aos="fade-up" data-aos-delay="200">
+            <div class="fase-num" style="background:white; color:black;">3</div>
+            <h3>La Gran Final</h3>
+            <p><strong>30 DE SEPTIEMBRE.</strong> Los 5 campeones compiten por el podio ante toda la comunidad. (Ver detalles debajo).</p>
+        </div>
+    </div>
+</section>
+
+<!-- TEMARIO / VERSÍCULOS -->
+<section id="temario">
+    <span class="hero-tag"><i class="fa-solid fa-book"></i> REINA-VALERA 1960 (TRADUCCIÓN OFICIAL)</span>
+    <h2 class="section-header-title" style="text-align: left; margin-bottom: 20px;">Banco de Versículos</h2>
+    <p style="font-weight: 600; margin-bottom: 40px; color: #666; max-width: 800px;">Memoriza estos 20 pasajes fundamentales; serán evaluados en todas las etapas: Preselección, elección del representante por aula y gran final.</p>
+    
+    <div class="verse-list">
+        
+        <div class="eje-title">Eje 1: La Ley y la Santidad de Dios</div>
+        
+        <div class="verse-card" data-aos="fade-up">
+            <strong>Salmos 19:7</strong>
+            <p>«La ley de Jehová es perfecta, que convierte el alma; El testimonio de Jehová es fiel, que hace sabio al sencillo.»</p>
+        </div>
+        <div class="verse-card" data-aos="fade-up">
+            <strong>Salmos 11:7</strong>
+            <p>«Porque Jehová es justo, y ama la justicia; El hombre recto mirará su rostro.»</p>
+        </div>
+        <div class="verse-card" data-aos="fade-up">
+            <strong>Mateo 5:17</strong>
+            <p>«No penséis que he venido para abrogar la ley o los profetas; no he venido para abrogar, sino para cumplir.»</p>
+        </div>
+
+        <div id="more-verses">
+            <div class="verse-card">
+                <strong>2 Timoteo 3:16-17</strong>
+                <p>«Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia, a fin de que el hombre de Dios sea perfecto, enteramente preparado para toda buena obra.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>2 Timoteo 2:15</strong>
+                <p>«Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad.»</p>
+            </div>
+
+            <div class="eje-title">Eje 2: La Gracia, el Perdón y la Redención</div>
+
+            <div class="verse-card">
+                <strong>Juan 3:16</strong>
+                <p>«Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Efesios 2:8-9</strong>
+                <p>«Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Romanos 5:8</strong>
+                <p>«Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Romanos 3:23-24</strong>
+                <p>«Por cuanto todos pecaron, y están destituidos de la gloria de Dios, siendo justificados gratuitamente por su gracia, mediante la redención que es en Cristo Jesús.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>2 Corintios 12:9</strong>
+                <p>«Y me ha dicho: Baste mi gracia; porque mi poder se perfecciona en la debilidad.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>1 Juan 1:9</strong>
+                <p>«Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Hebreos 4:16</strong>
+                <p>«Acerquémonos, pues, confiadamente al trono de la gracia, para alcanzar misericordia y hallar gracia para el oportuno socorro.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Isaías 55:6-7</strong>
+                <p>«Buscad a Jehová mientras puede ser hallado, llamadle en tanto que está cercano. Deje el impío su camino, y el hombre inicuo sus pensamientos, y vuélvase a Jehová...»</p>
+            </div>
+
+            <div class="eje-title">Eje 3: Caminar en la Verdad</div>
+
+            <div class="verse-card">
+                <strong>1 Pedro 2:9</strong>
+                <p>«Mas vosotros sois linaje escogido, real sacerdocio, nación santa, pueblo adquirido por Dios, para que anunciéis las virtudes de aquel que os llamó de las tinieblas a su luz admirable.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Proverbios 3:5-6</strong>
+                <p>«Fíate de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia. Reconócelo en todos tus caminos, y él enderezará tus veredas.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Salmos 37:4-5</strong>
+                <p>«Deléitate asimismo en Jehová, y él te concederá las peticiones de tu corazón. Encomienda a Jehová tu camino, y confía en él; y él hará.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Romanos 8:28</strong>
+                <p>«Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Salmos 121:7-8</strong>
+                <p>«Jehová te guardará de todo mal; Él guardará tu alma. Jehová guardará tu salida y tu entrada desde ahora y para siempre.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Colosenses 3:23-24</strong>
+                <p>«Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres; sabiendo que del Señor recibiréis la recompensa de la herencia, porque a Cristo el Señor servís.»</p>
+            </div>
+            <div class="verse-card">
+                <strong>Efesios 6:1-3</strong>
+                <p>«Hijos, obedeced en el Señor a vuestros padres, porque esto es justo. Honra a tu padre y a tu madre, que es el primer mandamiento con promesa; para que te vaya bien, y seas de larga vida sobre la tierra.»</p>
+            </div>
+        </div>
+
+        <button class="btn-view-more" id="show-more-btn" onclick="toggleVerses()">VER MÁS <i class="fa-solid fa-chevron-down"></i></button>
+
+        <div class="audio-section" data-aos="fade-up">
+            <h3 style="font-weight: 900; font-size: 24px; text-transform: uppercase; margin-bottom: 10px;">
+                <i class="fa-solid fa-headphones"></i> Material de Apoyo (Audio)
+            </h3>
+            <p style="font-weight: 500; opacity: 0.8; margin-bottom: 20px;">Escucha estos pasajes clave para perfeccionar tu fluidez y pronunciación:</p>
+            
+            <div class="audio-grid">
+                <div class="audio-player-card">
+                    <h4><i class="fa-solid fa-music"></i> Salmos 34</h4>
+                    <p style="font-size: 13px; font-weight: 700; color: #666; margin-bottom: 8px;">Capítulo Completo</p>
+                    <audio controls>
+                        <source src="https://audio-bible-cdn.youversionapi.com/21/32k/PSA/34-722c591a22024781e72c068ab49ccbf4.mp3?version_id=149" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+
+                <div class="audio-player-card">
+                    <h4><i class="fa-solid fa-microphone-lines"></i> Éxodo 20:1-17</h4>
+                    <p style="font-size: 13px; font-weight: 700; color: #666; margin-bottom: 8px;">Los Diez Mandamientos</p>
+                    <audio controls>
+                        <source src="https://music.audiomack.com/streaming/mileniumbot/6a91153617730__1787893059.m4a?Expires=1787907508&Signature=fShC6ZNvOmsj7sYbhJ5B1ICYxGmmQnOtfK-f4h9qZc6ybuFpwJoqNs5wMSbPAu6-0-NIQXrBofxCO9kl~PphXDm-0RtyvnRcNgIE-21AAcfT3hxTetnOg07mrhPYYWwM1R2aCnBimiglMs~RhmeSNn0f2tvOcn0gLsJ~1yhgHmw_&Key-Pair-Id=APKAIKAIRXBA2H7FXITA" type="audio/mp4">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- MATRIZ DE EVALUACIÓN -->
+<section>
+    <div class="content-card">
+        <h2 class="section-header-title">Matriz de Evaluación</h2>
+        <div class="matrix-container">
+            <div class="matrix-row" data-aos="zoom-in">
+                <span>Exactitud Textual (RVR1960)</span>
+                <span>50%</span>
+            </div>
+            <div class="matrix-row" data-aos="zoom-in" data-aos-delay="100" style="background: white; border: 3px solid black;">
+                <span>Fluidez y Memoria Continuada</span>
+                <span>30%</span>
+            </div>
+            <div class="matrix-row" data-aos="zoom-in" data-aos-delay="200">
+                <span>Agilidad de Respuesta</span>
+                <span>20%</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GRAN FINAL -->
+<section id="final">
+    <div class="banner-final" data-aos="zoom-in">
+        <h4 style="font-weight: 900; letter-spacing: 2px;">EL GRAN DÍA HA LLEGADO</h4>
+        <h2>MIÉRCOLES 30 SEPTIEMBRE</h2>
+        
+        <p style="font-weight: 700; font-size: clamp(16px, 4vw, 20px); margin-top: 20px; max-width: 800px; margin-inline: auto;">
+            Los 5 Representantes de Grado (1° a 5°) competirán en tres rondas decisivas:
+        </p>
+
+        <div class="final-rounds-grid">
+            <div class="round-card" data-aos="fade-up">
+                <div class="round-header">Ronda 1</div>
+                <div class="round-content">
+                    <div class="round-title">Palabras Clave</div>
+                    <div class="round-body">
+                        Se presentan <strong>2 palabras clave</strong> y el estudiante debe identificar y recitar el versículo al que corresponden.
+                    </div>
+                    <div class="round-footer">(Base: Banco de 20 versículos)</div>
+                </div>
+            </div>
+
+            <div class="round-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="round-header" style="background: var(--neon-green); color: black;">Ronda 2</div>
+                <div class="round-content">
+                    <div class="round-title">Identificación</div>
+                    <div class="round-body">
+                        <strong>A) Directo:</strong> Se da la cita bíblica y recitan el versículo. <br><br>
+                        <strong>B) Inverso:</strong> Se lee el versículo completo y dicen la cita exacta.
+                    </div>
+                    <div class="round-footer">(Base: Banco de 20 versículos)</div>
+                </div>
+            </div>
+
+            <div class="round-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="round-header">Ronda 3</div>
+                <div class="round-content">
+                    <div class="round-title">Relevo de Capítulos</div>
+                    <div class="round-body">
+                        Se leerá un fragmento de <strong>Éxodo 20:1-17</strong> o <strong>Salmo 34</strong>. El participante debe tomar la posta y continuar de memoria.
+                    </div>
+                    <div class="round-footer">(Capítulos Completos)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="final-medal-info">
+          En función de los tres mayores puntajes, se definirán el 1.°, 2.° y 3.° puesto.
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div>
+            <div class="footer-logo">CONCURSO<span class="logo-box" style="color: black; background: var(--neon-green);">BÍBLICO</span></div>
+            <p style="font-size: 14px; opacity: 0.5; margin-top: 5px;">Colegio Los Olivos #Religión2026</p>
+        </div>
+        <div style="display: flex; gap: 20px; font-size: 20px;">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/colegio_losolivos85/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+              <i class="fa-brands fa-instagram"></i>
+          </a>
+      
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/colegiolosolivos.edu" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+              <i class="fa-brands fa-facebook"></i>
+          </a>
+      
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@colegio_losolivos" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+              <i class="fa-brands fa-tiktok"></i>
+          </a>
+      </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-quad',
+        once: true,
+        disable: 'mobile' 
+    });
+
+    function toggleVerses() {
+        const moreVersesDiv = document.getElementById('more-verses');
+        const btn = document.getElementById('show-more-btn');
+        
+        if (moreVersesDiv.style.display === 'none' || moreVersesDiv.style.display === '') {
+            moreVersesDiv.style.display = 'block';
+            btn.innerHTML = 'VER MENOS <i class="fa-solid fa-chevron-up"></i>';
+        } else {
+            moreVersesDiv.style.display = 'none';
+            btn.innerHTML = 'VER MÁS <i class="fa-solid fa-chevron-down"></i>';
+            document.getElementById('temario').scrollIntoView();
+        }
+    }
+
+    // --- COUNTDOWN LIMA UTC-5 ---
+    const targetPre = new Date("2026-09-21T08:00:00-05:00").getTime();
+    const targetFinal = new Date("2026-09-30T09:00:00-05:00").getTime();
+
+    function updateCountdowns() {
+        const now = new Date().getTime();
+            
+        const distPre = targetPre - now;
+        if (distPre > 0) {
+            document.getElementById("days-pre").innerText = Math.floor(distPre / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("hours-pre").innerText = Math.floor((distPre % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("mins-pre").innerText = Math.floor((distPre % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("secs-pre").innerText = Math.floor((distPre % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        } else {
+            document.getElementById("timer-pre").innerHTML = "<h3 style='color:#000; margin:0;'>¡EN CURSO!</h3>";
+        }
+
+        const distFinal = targetFinal - now;
+        if (distFinal > 0) {
+            document.getElementById("days-final").innerText = Math.floor(distFinal / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("hours-final").innerText = Math.floor((distFinal % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("mins-final").innerText = Math.floor((distFinal % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("secs-final").innerText = Math.floor((distFinal % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        } else {
+            document.getElementById("timer-final").innerHTML = "<h3 style='color:#000; margin:0;'>¡ES HOY!</h3>";
+        }
+    }
+
+    setInterval(updateCountdowns, 1000);
+    updateCountdowns();
+</script>
+</body>
+</html>
