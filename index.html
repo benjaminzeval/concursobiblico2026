@@ -320,6 +320,26 @@
             transition: var(--transition);
         }
 
+        /* Estilo para las fechas en la esquina superior derecha */
+        .fase-date-tag {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 11px;
+            font-weight: 900;
+            background: var(--dark-black);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .fase-box.highlight .fase-date-tag {
+            background: white;
+            color: black;
+        }
+
         .fase-box.highlight {
             background: var(--neon-green);
             box-shadow: 6px 6px 0px black;
@@ -686,31 +706,34 @@
     <h2 class="section-header-title" data-aos="fade-right">El Propósito</h2>
     <div class="content-card" data-aos="fade-up">
         <div class="fundamento-text">
-            Este concurso nace con el propósito de conectar a los estudiantes con la Palabra de Dios de una manera viva, práctica y retadora. A través del estudio de <span>Éxodo 20</span> y el <span>Salmo 34</span>, los jóvenes comprenderán el balance fundamental de la fe cristiana: mientras la <span>Ley</span> nos muestra la santidad de Dios, Su <span>Gracia</span> nos abraza, nos perdona y nos brinda refugio.
+            Este concurso nace con el propósito de conectar a los estudiantes con la Palabra de Dios de una manera viva, práctica y retadora. A través del estudio, los jóvenes comprenderán el balance fundamental de la fe cristiana: mientras la <span>Ley</span> nos muestra la santidad de Dios, Su <span>Gracia</span> nos abraza, nos perdona y nos brinda refugio.
             <br><br>
-            Buscamos afianzar la <span>disciplina de la memorización</span> y promover una integración de principios espirituales en la vida cotidiana de cada alumno.
+            Buscamos afianzar la <span>disciplina de la memorización</span>, desafiarlos y promover una integración de principios espirituales en la vida cotidiana de cada alumno.
         </div>
     </div>
 </section>
 
-<!-- SECCIÓN FASES (EDITADA PARA PANTALLA COMPLETA) -->
+<!-- SECCIÓN FASES -->
 <section id="etapas" style="background: white;">
     <h2 class="section-header-title">Etapas del Concurso</h2>
     <div class="fases-grid">
         <div class="fase-box" data-aos="fade-up">
+            <div class="fase-date-tag">21 Sept.</div>
             <div class="fase-num">1</div>
             <h3>Preselección</h3>
-            <p>Prueba escrita aplicada en cada salón para evaluar el conocimiento individual de los 20 versículos clave. Los 3 mejores de cada aula clasifican.</p>
+            <p>Prueba física o digital aplicada en cada salón para evaluar el conocimiento individual de los 20 versículos clave. Los 3 mejores de cada aula clasifican.</p>
         </div>
         <div class="fase-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="fase-date-tag">30 Sept.</div>
             <div class="fase-num">2</div>
             <h3>Eliminatoria en vivo</h3>
             <p>Competencia ágil en escenario utilizando pulsadores y/o banderas. Se define el Único Representante Oficial por cada grado (1° a 5°).</p>
         </div>
         <div class="fase-box highlight" data-aos="fade-up" data-aos-delay="200">
+            <div class="fase-date-tag">30 Sept.</div>
             <div class="fase-num" style="background:white; color:black;">3</div>
             <h3>La Gran Final</h3>
-            <p><strong>30 DE SEPTIEMBRE.</strong> Los 5 representantes (1 por cada salón) compiten por el podio ante todo el nivel de secundaria.</p>
+            <p>Los 5 representantes (1 por cada salón) compiten por el podio ante todo el nivel de secundaria.</p>
         </div>
     </div>
 </section>
@@ -821,7 +844,7 @@
             <h3 style="font-weight: 900; font-size: 24px; text-transform: uppercase; margin-bottom: 10px;">
                 <i class="fa-solid fa-headphones"></i> Material de Apoyo (Audio)
             </h3>
-            <p style="font-weight: 500; opacity: 0.8; margin-bottom: 20px;">Escucha estos pasajes clave para perfeccionar tu fluidez y pronunciación:</p>
+            <p style="font-weight: 500; opacity: 0.8; margin-bottom: 20px;">Escucha estos pasajes clave de Salmos y Éxodo para memorizar con facilidad, perfeccionar tu fluidez y pronunciación.</p>
             
             <div class="audio-grid">
                 <div class="audio-player-card">
@@ -875,7 +898,7 @@
         <h2>MIÉRCOLES 30 SEPTIEMBRE</h2>
         
         <p style="font-weight: 700; font-size: clamp(16px, 4vw, 20px); margin-top: 20px; max-width: 800px; margin-inline: auto;">
-            Los 5 Representantes de Grado (1° a 5°) competirán en tres rondas decisivas:
+            Los 5 Representantes de cada Grado (1° a 5°) competirán en tres rondas decisivas:
         </p>
 
         <div class="final-rounds-grid">
