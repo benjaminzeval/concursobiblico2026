@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONCURSO BÍBLICO 2026 | Los Olivos</title>
 
+    <!-- FAVICON (Ícono de la pestaña) -->
+    <link rel="icon" type="image/png" href="https://ieplosolivos.edu.pe/wp-content/uploads/2024/02/cropped-logo-_2.png">
+
     <!-- Fuentes: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1056,7 +1059,7 @@
                 <div class="round-content">
                     <div class="round-title">Relevo de Capítulos</div>
                     <div class="round-body">
-                        Se leerá un fragmento al azar de <strong>Éxodo 20:1-17</strong> y <strong>Salmo 34</strong>. El participante debe tomar la posta y continuar de memoria.
+                        Se leerá un fragmento de <strong>Éxodo 20:1-17</strong> o <strong>Salmo 34</strong>. El participante debe tomar la posta y continuar de memoria.
                     </div>
                     <div class="round-footer">(Capítulos Completos)</div>
                 </div>
@@ -1101,16 +1104,15 @@
         if (buffer === "67") {
             const h1 = document.getElementById('hero-title');
             if (h1) {
-                h1.classList.remove('easter-egg-active'); // Limpiar si ya existe
-                void h1.offsetWidth; // Forzar reflow para reiniciar animación
+                h1.classList.remove('easter-egg-active');
+                void h1.offsetWidth; // Forzar reflow
                 h1.classList.add('easter-egg-active');
                 
-                // Remover clase después de la animación (0.3s * 3 = 900ms)
                 setTimeout(() => {
                     h1.classList.remove('easter-egg-active');
                 }, 900);
             }
-            buffer = ""; // Limpiar después de activado
+            buffer = ""; 
         }
     });
 
