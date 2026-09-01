@@ -194,6 +194,20 @@
             box-shadow: 8px 8px 0px #000;
         }
 
+        /* --- ESTILOS EASTER EGG --- */
+        @keyframes tilt-egg {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .easter-egg-active {
+            animation: tilt-egg 0.9s ease-in-out;
+            animation-iteration-count: 3;
+            display: inline-block;
+        }
+
         /* --- COUNTDOWN --- */
         .countdown-section {
             padding: 40px 5%;
@@ -784,7 +798,7 @@
         <i class="fa-solid fa-check-circle"></i> NIVEL SECUNDARIA 2026
     </div>
     <h4 data-aos="fade-up" data-aos-delay="200">COLEGIO LOS OLIVOS PRESENTA</h4>
-    <h1 data-aos="fade-up" data-aos-delay="300">En la ley medita<br>de día y de noche.</h1>
+    <h1 id="hero-title" data-aos="fade-up" data-aos-delay="300">En la ley medita<br>de día y de noche.</h1>
     <p data-aos="fade-up" data-aos-delay="400">
         
        
@@ -1042,7 +1056,7 @@
                 <div class="round-content">
                     <div class="round-title">Relevo de Capítulos</div>
                     <div class="round-body">
-                        Se leerá un fragmento de <strong>Éxodo 20:1-17</strong> o <strong>Salmo 34</strong>. El participante debe tomar la posta y continuar de memoria.
+                        Se leerá un fragmento al azar de <strong>Éxodo 20:1-17</strong> y <strong>Salmo 34</strong>. El participante debe tomar la posta y continuar de memoria.
                     </div>
                     <div class="round-footer">(Capítulos Completos)</div>
                 </div>
@@ -1076,6 +1090,28 @@
         easing: 'ease-out-quad',
         once: true,
         disable: 'mobile' 
+    });
+
+    // LÓGICA EASTER EGG (DIGITAR 67)
+    let buffer = "";
+    window.addEventListener("keydown", (e) => {
+        buffer += e.key;
+        if (buffer.length > 2) buffer = buffer.substring(buffer.length - 2);
+        
+        if (buffer === "67") {
+            const h1 = document.getElementById('hero-title');
+            if (h1) {
+                h1.classList.remove('easter-egg-active'); // Limpiar si ya existe
+                void h1.offsetWidth; // Forzar reflow para reiniciar animación
+                h1.classList.add('easter-egg-active');
+                
+                // Remover clase después de la animación (0.3s * 3 = 900ms)
+                setTimeout(() => {
+                    h1.classList.remove('easter-egg-active');
+                }, 900);
+            }
+            buffer = ""; // Limpiar después de activado
+        }
     });
 
     // FUNCIONES MODAL
