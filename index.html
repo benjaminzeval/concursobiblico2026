@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="https://ieplosolivos.edu.pe/wp-content/uploads/2024/02/cropped-logo-_2.png">
 
     <!-- Fuentes: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
@@ -576,6 +576,141 @@
             transform: scale(1.05);
         }
 
+        /* --- REFERENCIA MODERNIZADA FLASHCARDS (INSPIRACIÓN IMAGENES) --- */
+        .training-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .flashcard {
+            height: 320px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 30px;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            border: 3px solid #000;
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+
+        /* DISEÑO FRENTE (The One Plan Look) */
+        .flashcard-front {
+            background: #181818;
+            color: white;
+            justify-content: space-between;
+        }
+
+        .flashcard-badge {
+            background: var(--neon-green);
+            color: black;
+            padding: 8px 15px;
+            font-weight: 900;
+            font-size: 12px;
+            border-radius: 8px;
+            display: inline-block;
+            align-self: flex-start;
+            text-transform: uppercase;
+            border: 1.5px solid black;
+        }
+
+        .flashcard-cite {
+            font-size: clamp(34px, 5vw, 44px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin: 20px 0;
+            line-height: 0.9;
+        }
+
+        .flashcard-prompt {
+            font-weight: 700;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .flashcard-prompt i {
+            color: var(--neon-green);
+            font-size: 8px;
+        }
+
+        /* DISEÑO ATRÁS (Framer Care+ Look) */
+        .flashcard-back {
+            background: var(--neon-green);
+            color: black;
+            transform: rotateY(180deg);
+            justify-content: center;
+        }
+
+        .flashcard-text {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.35;
+            letter-spacing: -0.5px;
+        }
+
+        .check-pill {
+            background: black;
+            color: var(--neon-green);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: #e4e4e4;
+            color: #777;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active {
+            background: black;
+            color: var(--neon-green);
+        }
+
         /* --- AUDIO PLAYERS --- */
         .audio-section {
             margin-top: 60px;
@@ -807,8 +942,8 @@
        
     </p>
     
-    <a href="#temario" class="btn-main-neon" data-aos="zoom-in" data-aos-delay="600">
-        COMENZAR PREPARACIÓN <i class="fa-solid fa-bolt"></i>
+    <a href="#entrenar" class="btn-main-neon" data-aos="zoom-in" data-aos-delay="600">
+        ¡A entrenar! <i class="fa-solid fa-bolt"></i>
     </a>
 </header>
 
@@ -935,7 +1070,7 @@
             </div>
             <div class="verse-card">
                 <strong>Isaías 55:6-7</strong>
-                <p>«Buscad a Jehová mientras puede ser hallado, llamadle en tanto que está cercano. Deje el impío su camino, y el hombre inicuo sus pensamientos, y vuélvase a Jehová...»</p>
+                <p>«Buscad a Jehová mientras puede ser hallado, llamadle en tanto que está cercano. Deje el impío su camino, y el hombre inicuo sus pensamientos, y vuélvase a Jehová, el cual tendrá de él misericordia, y al Dios nuestro, el cual será amplio en perdonar.»</p>
             </div>
 
             <div class="eje-title">Eje 3: Caminar en la Verdad</div>
@@ -970,7 +1105,26 @@
             </div>
         </div>
 
-        <button class="btn-view-more" id="show-more-btn" onclick="toggleVerses()">VER MÁS <i class="fa-solid fa-chevron-down"></i></button>
+        <button class="btn-view-more" id="show-more-btn" onclick="toggleVerses()">VER LISTA COMPLETA <i class="fa-solid fa-chevron-down"></i></button>
+
+        <!-- SECCIÓN: ARENA DE ENTRENAMIENTO ACTUALIZADA -->
+        <section id="entrenar" style="padding-top: 40px;">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 class="section-header-title" style="margin-bottom: 10px;">Flashcards</h2>
+                <p style="font-weight: 700; color: #555;">Estudia los 20 versículos interactuando con las tarjetas</p>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterTraining('all', this)">VER TODOS</button>
+                <button class="filter-btn" onclick="filterTraining('eje1', this)">EJE 1</button>
+                <button class="filter-btn" onclick="filterTraining('eje2', this)">EJE 2</button>
+                <button class="filter-btn" onclick="filterTraining('eje3', this)">EJE 3</button>
+            </div>
+
+            <div class="training-container" id="flashcard-grid">
+                <!-- Se generan dinámicamente con estilo Premium -->
+            </div>
+        </section>
 
         <div class="audio-section" data-aos="fade-up">
             <h3 style="font-weight: 900; font-size: 24px; text-transform: uppercase; margin-bottom: 10px;">
@@ -1088,11 +1242,93 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
+    /**
+     * AJUSTE SENIOR: Iniciamos AOS globalmente.
+     * Importante: delayOffset y refresh aseguran que el contenido dinámico sea visible.
+     */
     AOS.init({
         duration: 800,
         easing: 'ease-out-quad',
         once: true,
-        disable: 'mobile' 
+        disable: false 
+    });
+
+    // DATA DE VERSÍCULOS
+    const versesData = [
+        { cite: "Salmos 19:7", text: "La ley de Jehová es perfecta, que convierte el alma; El testimonio de Jehová es fiel, que hace sabio al sencillo.", eje: "eje1", badge: "LEY" },
+        { cite: "Salmos 11:7", text: "Porque Jehová es justo, y ama la justicia; El hombre recto mirará su rostro.", eje: "eje1", badge: "LEY" },
+        { cite: "Mateo 5:17", text: "No penséis que he venido para abrogar la ley o los profetas; no he venido para abrogar, sino para cumplir.", eje: "eje1", badge: "LEY" },
+        { cite: "2 Timoteo 3:16-17", text: "Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia, a fin de que el hombre de Dios sea perfecto, enteramente preparado para toda buena obra.", eje: "eje1", badge: "ESCRITURA" },
+        { cite: "2 Timoteo 2:15", text: "Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad.", eje: "eje1", badge: "OBRERO" },
+        
+        { cite: "Juan 3:16", text: "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.", eje: "eje2", badge: "SALVACIÓN" },
+        { cite: "Efesios 2:8-9", text: "Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe.", eje: "eje2", badge: "GRACIA" },
+        { cite: "Romanos 5:8", text: "Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.", eje: "eje2", badge: "AMOR" },
+        { cite: "Romanos 3:23-24", text: "Por cuanto todos pecaron, y están destituidos de la gloria de Dios, siendo justificados gratuitamente por su gracia, mediante la redención que es en Cristo Jesús.", eje: "eje2", badge: "REDENCIÓN" },
+        { cite: "2 Corintios 12:9", text: "Y me ha dicho: Baste mi gracia; porque mi poder se perfecciona en la debilidad.", eje: "eje2", badge: "GRACIA" },
+        { cite: "1 Juan 1:9", text: "Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad.", eje: "eje2", badge: "PERDÓN" },
+        { cite: "Hebreos 4:16", text: "Acerquémonos, pues, confiadamente al trono de la gracia, para alcanzar misericordia y hallar gracia para el oportuno socorro.", eje: "eje2", badge: "SOCORRO" },
+        { cite: "Isaías 55:6-7", text: "Buscad a Jehová mientras puede ser hallado, llamadle en tanto que está cercano. Deje el impío su camino, y el hombre inicuo sus pensamientos, y vuélvase a Jehová, el cual tendrá de él misericordia, y al Dios nuestro, el cual será amplio en perdonar.", eje: "eje2", badge: "REDENCIÓN" },
+
+        { cite: "1 Pedro 2:9", text: "Mas vosotros sois linaje escogido, real sacerdocio, nación santa, pueblo adquirido por Dios, para que anunciéis las virtudes de aquel que os llamó de las tinieblas a su luz admirable.", eje: "eje3", badge: "PUEBLO" },
+        { cite: "Proverbios 3:5-6", text: "Fíate de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia. Reconócelo en todos tus caminos, y él enderezará tus veredas.", eje: "eje3", badge: "SABIDURÍA" },
+        { cite: "Salmos 37:4-5", text: "Deléitate asimismo en Jehová, y él te concederá las peticiones de tu corazón. Encomienda a Jehová tu camino, y confía en él; y él hará.", eje: "eje3", badge: "DELÉITATE" },
+        { cite: "Romanos 8:28", text: "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados.", eje: "eje3", badge: "AYUDAN A BIEN" },
+        { cite: "Salmos 121:7-8", text: "Jehová te guardará de todo mal; Él guardará tu alma. Jehová guardará tu salida y tu entrada desde ahora y para siempre.", eje: "eje3", badge: "GUARDARÁ" },
+        { cite: "Colosenses 3:23-24", text: "Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres; sabiendo que del Señor recibiréis la recompensa de la herencia, porque a Cristo el Señor servís.", eje: "eje3", badge: "HAGÁIS" },
+        { cite: "Efesios 6:1-3", text: "Hijos, obedeced en el Señor a vuestros padres, porque esto es justo. Honra a tu padre y a tu madre, que es el primer mandamiento con promesa; para que te vaya bien, y seas de larga vida sobre la tierra.", eje: "eje3", badge: "PADRES" }
+    ];
+
+    /**
+     * AJUSTE SENIOR: Inyección dinámica de HTML para las Flashcards.
+     * Se invoca AOS.refresh() al final para asegurar la visibilidad.
+     */
+    function generateFlashcards(filter = 'all') {
+        const grid = document.getElementById('flashcard-grid');
+        grid.innerHTML = '';
+        
+        const filtered = filter === 'all' ? versesData : versesData.filter(v => v.eje === filter);
+        
+        filtered.forEach(v => {
+            const card = document.createElement('div');
+            card.className = 'flashcard';
+            // Inyectamos el atributo de AOS manualmente para mantener el diseño premium
+            card.setAttribute('data-aos', 'fade-up'); 
+            
+            card.innerHTML = `
+                <div class="flashcard-inner">
+                    <!-- Frente Estilo "The One Plan" -->
+                    <div class="flashcard-front">
+                        <span class="flashcard-badge">${v.badge}</span>
+                        <div class="flashcard-cite">${v.cite}</div>
+                        <div class="flashcard-prompt">
+                            <i class="fa-solid fa-circle"></i> Haz click para revelar
+                        </div>
+                    </div>
+                    <!-- Atrás Estilo "Framer Care+" -->
+                    <div class="flashcard-back">
+                        <div class="check-pill"><i class="fa-solid fa-check"></i></div>
+                        <p class="flashcard-text">«${v.text}»</p>
+                    </div>
+                </div>
+            `;
+            card.onclick = function() { this.classList.toggle('flipped'); };
+            grid.appendChild(card);
+        });
+        
+        // El secreto del Senior: Refrescar AOS después de alterar el DOM dinámicamente
+        setTimeout(() => { AOS.refresh(); }, 100);
+    }
+
+    function filterTraining(eje, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        generateFlashcards(eje);
+    }
+
+    // Inicializar cards al cargar
+    window.addEventListener('DOMContentLoaded', () => {
+        generateFlashcards();
     });
 
     // LÓGICA EASTER EGG (DIGITAR 67)
@@ -1105,7 +1341,7 @@
             const h1 = document.getElementById('hero-title');
             if (h1) {
                 h1.classList.remove('easter-egg-active');
-                void h1.offsetWidth; // Forzar reflow
+                void h1.offsetWidth; 
                 h1.classList.add('easter-egg-active');
                 
                 setTimeout(() => {
@@ -1119,7 +1355,7 @@
     // FUNCIONES MODAL
     function openModal() {
         document.getElementById('modalPre').style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Evita scroll
+        document.body.style.overflow = 'hidden'; 
     }
 
     function closeModal() {
@@ -1127,7 +1363,6 @@
         document.body.style.overflow = 'auto';
     }
 
-    // Cerrar modal al hacer click fuera de la tarjeta
     window.onclick = function(event) {
         let modal = document.getElementById('modalPre');
         if (event.target == modal) {
@@ -1143,9 +1378,11 @@
             btn.innerHTML = 'VER MENOS <i class="fa-solid fa-chevron-up"></i>';
         } else {
             moreVersesDiv.style.display = 'none';
-            btn.innerHTML = 'VER MÁS <i class="fa-solid fa-chevron-down"></i>';
+            btn.innerHTML = 'VER LISTA COMPLETA <i class="fa-solid fa-chevron-down"></i>';
             document.getElementById('temario').scrollIntoView();
         }
+        // Refrescar AOS ya que la altura de la página cambió drásticamente
+        AOS.refresh();
     }
 
     // COUNTDOWN
