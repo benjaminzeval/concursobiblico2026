@@ -1115,14 +1115,14 @@
             </div>
 
             <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterTraining('all', this)">VER TODOS</button>
-                <button class="filter-btn" onclick="filterTraining('eje1', this)">EJE 1</button>
+                <button class="filter-btn active" onclick="filterTraining('eje1', this)">EJE 1</button>
                 <button class="filter-btn" onclick="filterTraining('eje2', this)">EJE 2</button>
                 <button class="filter-btn" onclick="filterTraining('eje3', this)">EJE 3</button>
+                <button class="filter-btn" onclick="filterTraining('all', this)">VER TODOS</button>
             </div>
 
             <div class="training-container" id="flashcard-grid">
-                <!-- Se generan dinámicamente con estilo Premium -->
+                <!-- Se generan dinámicamente -->
             </div>
         </section>
 
@@ -1243,8 +1243,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
     /**
-     * AJUSTE SENIOR: Iniciamos AOS globalmente.
-     * Importante: delayOffset y refresh aseguran que el contenido dinámico sea visible.
+     * INICIALIZACIÓN AOS
      */
     AOS.init({
         duration: 800,
@@ -1280,8 +1279,7 @@
     ];
 
     /**
-     * AJUSTE SENIOR: Inyección dinámica de HTML para las Flashcards.
-     * Se invoca AOS.refresh() al final para asegurar la visibilidad.
+     * GENERADOR DINÁMICO DE CARDS
      */
     function generateFlashcards(filter = 'all') {
         const grid = document.getElementById('flashcard-grid');
@@ -1292,12 +1290,10 @@
         filtered.forEach(v => {
             const card = document.createElement('div');
             card.className = 'flashcard';
-            // Inyectamos el atributo de AOS manualmente para mantener el diseño premium
             card.setAttribute('data-aos', 'fade-up'); 
             
             card.innerHTML = `
                 <div class="flashcard-inner">
-                    <!-- Frente Estilo "The One Plan" -->
                     <div class="flashcard-front">
                         <span class="flashcard-badge">${v.badge}</span>
                         <div class="flashcard-cite">${v.cite}</div>
@@ -1305,7 +1301,6 @@
                             <i class="fa-solid fa-circle"></i> Haz click para revelar
                         </div>
                     </div>
-                    <!-- Atrás Estilo "Framer Care+" -->
                     <div class="flashcard-back">
                         <div class="check-pill"><i class="fa-solid fa-check"></i></div>
                         <p class="flashcard-text">«${v.text}»</p>
@@ -1316,7 +1311,7 @@
             grid.appendChild(card);
         });
         
-        // El secreto del Senior: Refrescar AOS después de alterar el DOM dinámicamente
+        // Refresh AOS para que detecte los nuevos elementos inyectados
         setTimeout(() => { AOS.refresh(); }, 100);
     }
 
@@ -1326,9 +1321,11 @@
         generateFlashcards(eje);
     }
 
-    // Inicializar cards al cargar
+    /**
+     * AJUSTE SENIOR: AL CARGAR, SOLO MOSTRAR EJE 1
+     */
     window.addEventListener('DOMContentLoaded', () => {
-        generateFlashcards();
+        generateFlashcards('eje1');
     });
 
     // LÓGICA EASTER EGG (DIGITAR 67)
@@ -1336,14 +1333,12 @@
     window.addEventListener("keydown", (e) => {
         buffer += e.key;
         if (buffer.length > 2) buffer = buffer.substring(buffer.length - 2);
-        
         if (buffer === "67") {
             const h1 = document.getElementById('hero-title');
             if (h1) {
                 h1.classList.remove('easter-egg-active');
                 void h1.offsetWidth; 
                 h1.classList.add('easter-egg-active');
-                
                 setTimeout(() => {
                     h1.classList.remove('easter-egg-active');
                 }, 900);
@@ -1381,7 +1376,6 @@
             btn.innerHTML = 'VER LISTA COMPLETA <i class="fa-solid fa-chevron-down"></i>';
             document.getElementById('temario').scrollIntoView();
         }
-        // Refrescar AOS ya que la altura de la página cambió drásticamente
         AOS.refresh();
     }
 
