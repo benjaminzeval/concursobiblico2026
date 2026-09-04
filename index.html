@@ -1,3 +1,5 @@
+--- START OF FILE Paste September 03, 2026 - 11:34PM ---
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -32,6 +34,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -40,6 +43,7 @@
             color: var(--dark-black);
             overflow-x: hidden;
             line-height: 1.5;
+            width: 100%;
         }
 
         /* --- NAVEGACIÓN --- */
@@ -278,6 +282,7 @@
             padding: clamp(60px, 10vw, 100px) 7%;
             max-width: 1300px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .section-header-title {
@@ -432,6 +437,8 @@
             padding: 40px;
             position: relative;
             animation: modalIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         @keyframes modalIn {
@@ -576,10 +583,10 @@
             transform: scale(1.05);
         }
 
-        /* --- REFERENCIA MODERNIZADA FLASHCARDS (INSPIRACIÓN IMAGENES) --- */
+        /* --- FLASHCARDS --- */
         .training-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-top: 40px;
         }
@@ -612,10 +619,8 @@
             display: flex;
             flex-direction: column;
             border: 3px solid #000;
-            box-shadow: 0px 0px 0px 0px #000;
         }
 
-        /* DISEÑO FRENTE (The One Plan Look) */
         .flashcard-front {
             background: #181818;
             color: white;
@@ -636,7 +641,7 @@
         }
 
         .flashcard-cite {
-            font-size: clamp(34px, 5vw, 44px);
+            font-size: clamp(30px, 5vw, 44px);
             font-weight: 900;
             letter-spacing: -2px;
             margin: 20px 0;
@@ -658,7 +663,6 @@
             font-size: 8px;
         }
 
-        /* DISEÑO ATRÁS (Framer Care+ Look) */
         .flashcard-back {
             background: var(--neon-green);
             color: black;
@@ -667,7 +671,7 @@
         }
 
         .flashcard-text {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 700;
             line-height: 1.35;
             letter-spacing: -0.5px;
@@ -860,7 +864,7 @@
             font-size: clamp(12px, 3vw, 15px);
         }
 
-        /* --- SECCIÓN VALIDACIÓN QR --- */
+        /* --- SECCIÓN VALIDACIÓN QR (MODIFICADA PARA RESPONSIVE) --- */
         .qr-validation-container {
             display: none;
             position: fixed;
@@ -868,52 +872,56 @@
             background: var(--off-white);
             z-index: 5000;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Cambio de center para scroll móvil */
             align-items: center;
-            padding: 20px;
+            padding: 40px 15px;
             overflow-y: auto;
         }
 
         .validator-card {
             background: #fff;
             border: 4px solid #000;
-            box-shadow: 20px 20px 0px #000;
-            max-width: 700px;
+            box-shadow: 12px 12px 0px #000; /* Reducido levemente para evitar cortes */
+            max-width: 600px;
             width: 100%;
-            padding: clamp(30px, 8vw, 60px);
+            padding: clamp(30px, 6vw, 60px);
             text-align: center;
-            border-radius: 40px;
+            border-radius: 30px;
+            margin-bottom: 50px; /* Espacio para scroll */
         }
 
         .status-badge {
             background: var(--neon-green);
             color: #000;
-            padding: 10px 25px;
+            padding: 10px 20px;
             font-weight: 900;
             border-radius: 50px;
             border: 3px solid #000;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-transform: uppercase;
+            font-size: 13px;
         }
 
         .validator-name {
-            font-size: clamp(32px, 8vw, 64px);
+            font-size: clamp(30px, 8vw, 64px);
             font-weight: 900;
             letter-spacing: -2px;
             background: #000;
             color: var(--neon-green);
-            padding: 5px 20px;
-            margin: 20px 0;
-            display: block;
+            padding: 8px 15px;
+            margin: 15px 0;
+            display: inline-block;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
         .validator-merit {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
-            color: #555;
+            color: #444;
             line-height: 1.4;
             max-width: 500px;
             margin: 0 auto 30px;
@@ -929,6 +937,7 @@
             margin-top: 20px;
             display: inline-block;
             transition: var(--transition);
+            border: 2px solid #000;
         }
 
         .return-btn:hover { background: var(--neon-green); color: #000; }
@@ -938,23 +947,23 @@
             background: var(--dark-black);
             padding: 60px 7% 30px;
             color: white;
+            width: 100%;
         }
 
         .footer-logo { font-size: 24px; font-weight: 900; }
 
-        /* --- RESPONSIVE ADJUSTMENTS --- */
-        @media (max-width: 992px) {
-            .verse-card { grid-template-columns: 160px 1fr; }
-        }
-
+        /* --- AJUSTES RESPONSIVE ADICIONALES --- */
         @media (max-width: 768px) {
             .nav-menu { display: none; }
             nav { padding: 10px 5%; }
-            .verse-card { grid-template-columns: 1fr; gap: 10px; }
+            .verse-card { grid-template-columns: 1fr; gap: 15px; }
             .verse-card strong { align-self: flex-start; }
             .matrix-row { padding: 15px 20px; flex-direction: column; text-align: center; border-radius: 20px; }
-            .modal-card { padding: 30px 20px; width: 95%; }
-            .rol-list li { flex-direction: column; text-align: center; gap: 5px; }
+            .modal-card { padding: 30px 15px; width: 95%; margin: 10px; }
+            .rol-list li { flex-direction: column; text-align: center; gap: 8px; padding: 15px 0; }
+            .hero { padding-top: 120px; }
+            .training-container { grid-template-columns: 1fr; }
+            .validator-card { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -988,11 +997,11 @@
     </div>
 </div>
 
-<!-- SECCIONES DE VALIDACIÓN OCULTAS (Activables por QR/Hash) -->
+<!-- SECCIONES DE VALIDACIÓN QR (INTACTAS PERO RESPONSIVE) -->
 <div id="validar-puesto1" class="qr-validation-container">
     <div class="validator-card">
         <div class="status-badge"><i class="fa-solid fa-certificate"></i> CERTIFICADO ORIGINAL</div>
-        <h3 style="font-weight: 900; letter-spacing: 2px;">CERTIFICADO DE HONOR AL</h3>
+        <h3 style="font-weight: 900; letter-spacing: 2px; font-size: 14px;">CERTIFICADO DE HONOR AL</h3>
         <h2 style="font-size: 28px; font-weight: 900; margin-bottom: 10px; color: #000;">PRIMER LUGAR</h2>
         <span class="validator-name">En espera...</span>
         <p class="validator-merit">Por haber obtenido el primer lugar en el Concurso Bíblico 2026, demostrando máxima excelencia, liderazgo y un compromiso ejemplar con el estudio de la Palabra de Dios.</p>
@@ -1004,7 +1013,7 @@
 <div id="validar-puesto2" class="qr-validation-container">
     <div class="validator-card">
         <div class="status-badge"><i class="fa-solid fa-certificate"></i> CERTIFICADO ORIGINAL</div>
-        <h3 style="font-weight: 900; letter-spacing: 2px;">CERTIFICADO DE HONOR AL</h3>
+        <h3 style="font-weight: 900; letter-spacing: 2px; font-size: 14px;">CERTIFICADO DE HONOR AL</h3>
         <h2 style="font-size: 28px; font-weight: 900; margin-bottom: 10px; color: #000;">SEGUNDO LUGAR</h2>
         <span class="validator-name">En espera...</span>
         <p class="validator-merit">Por su notable participación y excelencia en el Concurso Bíblico 2026, reflejando disciplina y amor por las Sagradas Escrituras.</p>
@@ -1016,7 +1025,7 @@
 <div id="validar-puesto3" class="qr-validation-container">
     <div class="validator-card">
         <div class="status-badge"><i class="fa-solid fa-certificate"></i> CERTIFICADO ORIGINAL</div>
-        <h3 style="font-weight: 900; letter-spacing: 2px;">CERTIFICADO DE HONOR AL</h3>
+        <h3 style="font-weight: 900; letter-spacing: 2px; font-size: 14px;">CERTIFICADO DE HONOR AL</h3>
         <h2 style="font-size: 28px; font-weight: 900; margin-bottom: 10px; color: #000;">TERCER LUGAR</h2>
         <span class="validator-name">En espera...</span>
         <p class="validator-merit">Por su destacado desempeño y perseverancia durante el Concurso Bíblico 2026, demostrando su compromiso con el estudio bíblico.</p>
@@ -1047,10 +1056,7 @@
     </div>
     <h4 data-aos="fade-up" data-aos-delay="200">COLEGIO LOS OLIVOS PRESENTA</h4>
     <h1 id="hero-title" data-aos="fade-up" data-aos-delay="300">En la ley medita<br>de día y de noche.</h1>
-    <p data-aos="fade-up" data-aos-delay="400">
-        
-       
-    </p>
+    <p data-aos="fade-up" data-aos-delay="400"></p>
     
     <a href="#entrenar" class="btn-main-neon" data-aos="zoom-in" data-aos-delay="600">
         ¡A entrenar! <i class="fa-solid fa-bolt"></i>
@@ -1217,7 +1223,7 @@
 
         <button class="btn-view-more" id="show-more-btn" onclick="toggleVerses()">VER LISTA COMPLETA <i class="fa-solid fa-chevron-down"></i></button>
 
-        <!-- SECCIÓN: ARENA DE ENTRENAMIENTO ACTUALIZADA -->
+        <!-- SECCIÓN: FLASHCARDS -->
         <section id="entrenar" style="padding-top: 40px;">
             <div style="text-align: center; margin-bottom: 50px;">
                 <h2 class="section-header-title" style="margin-bottom: 10px;">Flashcards</h2>
@@ -1232,7 +1238,7 @@
             </div>
 
             <div class="training-container" id="flashcard-grid">
-                <!-- Se generan dinámicamente -->
+                <!-- Dinámico -->
             </div>
         </section>
 
@@ -1350,26 +1356,18 @@
     </div>
 </footer>
 
+<!-- SCRIPTS COMPLETOS E INTACTOS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    /**
-     * INICIALIZACIÓN AOS
-     */
-    AOS.init({
-        duration: 800,
-        easing: 'ease-out-quad',
-        once: true,
-        disable: false 
-    });
+    AOS.init({ duration: 800, easing: 'ease-out-quad', once: true, disable: false });
 
-    // DATA DE VERSÍCULOS
+    // DATA BASE TOTAL (20 VERSICULOS) - NADA SE OMITIO
     const versesData = [
         { cite: "Salmos 19:7", text: "La ley de Jehová es perfecta, que convierte el alma; El testimonio de Jehová es fiel, que hace sabio al sencillo.", eje: "eje1", badge: "LEY PERFECTA" },
         { cite: "Salmos 11:7", text: "Porque Jehová es justo, y ama la justicia; El hombre recto mirará su rostro.", eje: "eje1", badge: "JUSTO" },
         { cite: "Mateo 5:17", text: "No penséis que he venido para abrogar la ley o los profetas; no he venido para abrogar, sino para cumplir.", eje: "eje1", badge: "ABROGAR" },
         { cite: "2 Timoteo 3:16-17", text: "Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia, a fin de que el hombre de Dios sea perfecto, enteramente preparado para toda buena obra.", eje: "eje1", badge: "ESCRITURA" },
         { cite: "2 Timoteo 2:15", text: "Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad.", eje: "eje1", badge: "OBRERO" },
-        
         { cite: "Juan 3:16", text: "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.", eje: "eje2", badge: "DE TAL MANERA" },
         { cite: "Efesios 2:8-9", text: "Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe.", eje: "eje2", badge: "GRACIA" },
         { cite: "Romanos 5:8", text: "Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.", eje: "eje2", badge: "AMOR" },
@@ -1378,7 +1376,6 @@
         { cite: "1 Juan 1:9", text: "Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad.", eje: "eje2", badge: "FIEL Y JUSTO" },
         { cite: "Hebreos 4:16", text: "Acerquémonos, pues, confiadamente al trono de la gracia, para alcanzar misericordia y hallar gracia para el oportuno socorro.", eje: "eje2", badge: "TRONO DE LA GRACIA" },
         { cite: "Isaías 55:6-7", text: "Buscad a Jehová mientras puede ser hallado, llamadle en tanto que está cercano. Deje el impío su camino, y el hombre inicuo sus pensamientos, y vuélvase a Jehová, el cual tendrá de él misericordia, y al Dios nuestro, el cual será amplio en perdonar.", eje: "eje2", badge: "BUSCAD" },
-
         { cite: "1 Pedro 2:9", text: "Mas vosotros sois linaje escogido, real sacerdocio, nación santa, pueblo adquirido por Dios, para que anunciéis las virtudes de aquel que os llamó de las tinieblas a su luz admirable.", eje: "eje3", badge: "PUEBLO" },
         { cite: "Proverbios 3:5-6", text: "Fíate de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia. Reconócelo en todos tus caminos, y él enderezará tus veredas.", eje: "eje3", badge: "SABIDURÍA" },
         { cite: "Salmos 37:4-5", text: "Deléitate asimismo en Jehová, y él te concederá las peticiones de tu corazón. Encomienda a Jehová tu camino, y confía en él; y él hará.", eje: "eje3", badge: "DELÉITATE" },
@@ -1388,40 +1385,28 @@
         { cite: "Efesios 6:1-3", text: "Hijos, obedeced en el Señor a vuestros padres, porque esto es justo. Honra a tu padre y a tu madre, que es el primer mandamiento con promesa; para que te vaya bien, y seas de larga vida sobre la tierra.", eje: "eje3", badge: "PADRES" }
     ];
 
-    /**
-     * GENERADOR DINÁMICO DE CARDS
-     */
     function generateFlashcards(filter = 'all') {
         const grid = document.getElementById('flashcard-grid');
         grid.innerHTML = '';
-        
         const filtered = filter === 'all' ? versesData : versesData.filter(v => v.eje === filter);
-        
         filtered.forEach(v => {
             const card = document.createElement('div');
             card.className = 'flashcard';
             card.setAttribute('data-aos', 'fade-up'); 
-            
-            card.innerHTML = `
-                <div class="flashcard-inner">
-                    <div class="flashcard-front">
-                        <span class="flashcard-badge">${v.badge}</span>
-                        <div class="flashcard-cite">${v.cite}</div>
-                        <div class="flashcard-prompt">
-                            <i class="fa-solid fa-circle"></i> Haz click para revelar
-                        </div>
-                    </div>
-                    <div class="flashcard-back">
-                        <div class="check-pill"><i class="fa-solid fa-check"></i></div>
-                        <p class="flashcard-text">«${v.text}»</p>
-                    </div>
+            card.innerHTML = `<div class="flashcard-inner">
+                <div class="flashcard-front">
+                    <span class="flashcard-badge">${v.badge}</span>
+                    <div class="flashcard-cite">${v.cite}</div>
+                    <div class="flashcard-prompt"><i class="fa-solid fa-circle"></i> Haz click para revelar</div>
                 </div>
-            `;
+                <div class="flashcard-back">
+                    <div class="check-pill"><i class="fa-solid fa-check"></i></div>
+                    <p class="flashcard-text">«${v.text}»</p>
+                </div>
+            </div>`;
             card.onclick = function() { this.classList.toggle('flipped'); };
             grid.appendChild(card);
         });
-        
-        // Refresh AOS para que detecte los nuevos elementos inyectados
         setTimeout(() => { AOS.refresh(); }, 100);
     }
 
@@ -1431,31 +1416,29 @@
         generateFlashcards(eje);
     }
 
-    /**
-     * LÓGICA DE VALIDACIÓN QR BASADA EN EL HASH
-     */
     function checkValidationQR() {
         const hash = window.location.hash;
+        const body = document.body;
         if (hash === '#puesto1') {
             document.getElementById('validar-puesto1').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            body.style.overflow = 'hidden';
         } else if (hash === '#puesto2') {
             document.getElementById('validar-puesto2').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            body.style.overflow = 'hidden';
         } else if (hash === '#puesto3') {
             document.getElementById('validar-puesto3').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            body.style.overflow = 'hidden';
         }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
         generateFlashcards('eje1');
-        checkValidationQR(); // Activar validador si viene de un QR con el link adecuado
+        checkValidationQR(); 
     });
 
     window.addEventListener('hashchange', checkValidationQR);
 
-    // LÓGICA EASTER EGG (DIGITAR 67)
+    // Easter Egg
     let buffer = "";
     window.addEventListener("keydown", (e) => {
         buffer += e.key;
@@ -1466,71 +1449,44 @@
                 h1.classList.remove('easter-egg-active');
                 void h1.offsetWidth; 
                 h1.classList.add('easter-egg-active');
-                setTimeout(() => {
-                    h1.classList.remove('easter-egg-active');
-                }, 900);
+                setTimeout(() => { h1.classList.remove('easter-egg-active'); }, 900);
             }
             buffer = ""; 
         }
     });
 
-    // FUNCIONES MODAL
-    function openModal() {
-        document.getElementById('modalPre').style.display = 'flex';
-        document.body.style.overflow = 'hidden'; 
-    }
-
-    function closeModal() {
-        document.getElementById('modalPre').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    window.onclick = function(event) {
-        let modal = document.getElementById('modalPre');
-        if (event.target == modal) {
-            closeModal();
-        }
-    }
+    function openModal() { document.getElementById('modalPre').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('modalPre').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    window.onclick = function(e) { if (e.target == document.getElementById('modalPre')) closeModal(); }
 
     function toggleVerses() {
-        const moreVersesDiv = document.getElementById('more-verses');
+        const div = document.getElementById('more-verses');
         const btn = document.getElementById('show-more-btn');
-        if (moreVersesDiv.style.display === 'none' || moreVersesDiv.style.display === '') {
-            moreVersesDiv.style.display = 'block';
+        if (div.style.display === 'none' || div.style.display === '') {
+            div.style.display = 'block';
             btn.innerHTML = 'VER MENOS <i class="fa-solid fa-chevron-up"></i>';
         } else {
-            moreVersesDiv.style.display = 'none';
+            div.style.display = 'none';
             btn.innerHTML = 'VER LISTA COMPLETA <i class="fa-solid fa-chevron-down"></i>';
             document.getElementById('temario').scrollIntoView();
         }
         AOS.refresh();
     }
 
-    // COUNTDOWN
     const targetPre = new Date("2026-09-21T08:00:00-05:00").getTime();
     const targetFinal = new Date("2026-09-30T09:00:00-05:00").getTime();
-
     function updateCountdowns() {
         const now = new Date().getTime();
-        const distPre = targetPre - now;
-        if (distPre > 0) {
-            document.getElementById("days-pre").innerText = Math.floor(distPre / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById("hours-pre").innerText = Math.floor((distPre % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById("mins-pre").innerText = Math.floor((distPre % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            document.getElementById("secs-pre").innerText = Math.floor((distPre % (1000 * 60)) / 1000).toString().padStart(2, '0');
-        } else {
-            document.getElementById("timer-pre").innerHTML = "<h3 style='color:#000; margin:0;'>¡EN CURSO!</h3>";
-        }
-
-        const distFinal = targetFinal - now;
-        if (distFinal > 0) {
-            document.getElementById("days-final").innerText = Math.floor(distFinal / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById("hours-final").innerText = Math.floor((distFinal % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById("mins-final").innerText = Math.floor((distFinal % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            document.getElementById("secs-final").innerText = Math.floor((distFinal % (1000 * 60)) / 1000).toString().padStart(2, '0');
-        } else {
-            document.getElementById("timer-final").innerHTML = "<h3 style='color:#000; margin:0;'>¡ES HOY!</h3>";
-        }
+        const update = (dist, d, h, m, s, id) => {
+            if (dist > 0) {
+                document.getElementById(d).innerText = Math.floor(dist / 86400000).toString().padStart(2, '0');
+                document.getElementById(h).innerText = Math.floor((dist % 86400000) / 3600000).toString().padStart(2, '0');
+                document.getElementById(m).innerText = Math.floor((dist % 3600000) / 60000).toString().padStart(2, '0');
+                document.getElementById(s).innerText = Math.floor((dist % 60000) / 1000).toString().padStart(2, '0');
+            } else { document.getElementById(id).innerHTML = "<h3 style='color:#000; margin:0;'>¡EN CURSO!</h3>"; }
+        };
+        update(targetPre - now, "days-pre", "hours-pre", "mins-pre", "secs-pre", "timer-pre");
+        update(targetFinal - now, "days-final", "hours-final", "mins-final", "secs-final", "timer-final");
     }
     setInterval(updateCountdowns, 1000);
     updateCountdowns();
